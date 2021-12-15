@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#083756" />
+    <meta name="author" content="Sebastian Garcia" />
+    <meta name="copyright" content="© 2021 verdragondw">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="./static/css/final.css">
+    <link rel="stylesheet" href="./static/css/animaciones.css">
+    <title>Gestion de citas</title>
+    <!-- <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script> -->
+</head>
+<body class="bg-gray-50">
+    <!--Lista citas-->
+    <section class="w-full min-h-screen">
+        <h2 class="text-center my-10 text-4xl font-black text-gray-800">Lista de citas</h2>
+        <div class="flex flex-wrap justify-center">
+            <article class="md:w-1/2 lg:w-1/3 mb-10" >
+                <h3 class="mb-5 w-full text-center text-2xl text-gray-700 uppercase font-bold">Formulario de registro </h3>
+                <form onsubmit="submitForm(event)" class=" bg-white rounded mx-5 shadow pt-5">
+                    <div class="w-full px-5 my-2">
+                        <label for="nombreForm" class="text-gray-800 font-bold inline-block mb-2 uppercase">Nombre</label>
+                        <input name="nombre" id="nombreForm" class="w-full border-2 border-green-50 p-2 text-gray-700 rounded" type="text" placeholder="Nombre">
+                    </div>
+                    <div class="w-full px-5 my-2">
+                        <label for="telForm" class="text-gray-800 font-bold inline-block mb-2 uppercase">Telefono</label>
+                        <input name="telefono" id="telForm" class="w-full border-2 border-green-50 p-2 text-gray-700 rounded" type="tel" placeholder="Telefono">
+                    </div>
+                    <div class="w-full px-5 my-2">
+                        <label for="correoForm" class="text-gray-800 font-bold inline-block mb-2 uppercase">Correo</label>
+                        <input name="correo" id="correoForm" class="w-full border-2 border-green-50 p-2 text-gray-700 rounded" type="email" placeholder="Correo">
+                    </div>
+                    <div class="w-full p-5">
+                        <label for="fechaForm" class="text-gray-800 font-bold inline-block mb-2 uppercase">Fecha</label>
+                        <input name="fecha" id="fechaForm" class="w-full border-2 border-green-50 p-2 text-gray-700 rounded" type="date">
+                    </div>
+                    <div class="w-full p-5">
+                        <label for="horaForm" class="text-gray-800 font-bold inline-block mb-2 uppercase">Fecha</label>
+                        <input name="hora" id="horaForm" class="w-full border-2 border-green-50 p-2 text-gray-700 rounded" type="time" min="09:00" max="18:00">
+                        <p class="text-gray-400 text-xs">Hora de oficina 9:00-18:00</p>
+                    </div>
+                    <div class="w-full p-5">
+                        <label for="notaForm" class="text-gray-800 font-bold inline-block mb-2 uppercase">Nota</label>
+                        <textarea name="nota" id="notaForm" class="w-full border-2 border-green-50 p-2 text-gray-700 rounded"></textarea>
+                    </div>
+                    <div class="w-full p-5">
+                        <button type="submit" class="w-full text-center bg-green-400 p-2 text-gray-50 font-bold">Guardar</button>
+                    </div>
+                    <h3 id="mensajes" class="mx-5 p-5 text-center bg-red-200 transition hidden rounded">Faltan campos por llenar</h3>
+                </form>
+            </article>
+            <article class="w-full md:w-1/2 lg:w-2/3 mb-10">
+                <h3 class="mb-5 w-full text-center text-2xl text-gray-700 uppercase font-bold">Lista </h3>
+                <div id="listaPacientes" class="flex justify-center flex-wrap flex-col-reverse px-5">
+                    <template id="template-card">
+                        <div class="card-container">
+                            <div class="">
+                                <p class="card-nombre">Nombre: <span class="card-nombre-span template-nombre"></span></p>
+                                <div class="grid grid-cols-2 my-2">
+                                    <p class="card-nombre">Teléfono: <span class="card-nombre-span template-telefono"></span></p>
+                                    <p class="card-nombre">Correo: <span class="card-nombre-span template-correo"></span></p>
+                                </div>
+                                <div class="grid grid-cols-2 my-2">
+                                    <p class="card-nombre">Fecha: <span class="card-nombre-span template-fecha">24/12/21</span></p>
+                                    <p class="card-nombre">Hora: <span class="card-nombre-span template-hora">16:00</span></p>
+                                </div>
+                                <p class="card-nombre">Nota: <span class="card-nombre-span template-nota">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, repellat ducimus magni quod asperiores, soluta voluptas ab quidem aperiam veritatis doloremque. Molestias perspiciatis quia libero ea rem modi numquam voluptatibus!</span></p>
+                            </div>
+                            <div onclick="removeNodo(event)" class="flex flex-row-reverse">
+                                <!-- <div class="bg-green-100 w-12 h-12 flex justify-center items-center mx-5"><img class="w-3/4" src="./static/iconos/checkmark-circle-outline.svg" alt="icono de completado"></div> -->
+                                <div class="bg-red-100 w-12 h-12 flex justify-center items-center"><img class="w-3/4" src="./static/iconos/trash-outline.svg" alt="icono de borrar"></div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </article>
+        </div>
+    </section>
+    <script src="./static/js/appCitas.js"></script>
+</body>
+</html>
