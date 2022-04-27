@@ -1,5 +1,5 @@
-let $mensajes = document.getElementById('mensajes');
-let $cardTampalte = document.getElementById('template-card').content;
+let mensajes = document.getElementById('mensajes');
+let cardTampalte = document.getElementById('template-card').content;
 let listaCitas = document.getElementById('listaPacientes');
 let citas = [];
 
@@ -9,8 +9,21 @@ function startLocalStora(){
     if(localStorage.getItem('lista') !== undefined && localStorage.getItem('lista')){
         let listaLS = localStorage.getItem('lista');
         citas = JSON.parse(listaLS);
-        console.log(citas);
-        citas.map( item => addElementToList(item));
+        let fragment = new DocumentFragment();
+
+        citas.forEach(data => {
+            cardTampalte.querySelector('.template-nombre').textContent = data.nombre;
+            cardTampalte.querySelector('.template-telefono').textContent = data.telefono;
+            cardTampalte.querySelector('.template-correo').textContent = data.correo;
+            cardTampalte.querySelector('.template-fecha').textContent = data.fecha;
+            cardTampalte.querySelector('.template-hora').textContent = data.hora;
+            cardTampalte.querySelector('.template-nota').textContent = data.nota;
+            let clonTemplate = document.importNode(cardTampalte, true);
+            fragment.appendChild(clonTemplate);
+            clonTemplate = null;
+        });
+
+        listaCitas.appendChild(fragment);
     }
 }
 
@@ -24,7 +37,7 @@ function removeNodo(event){
 }
 function submitForm(event){
     event.preventDefault();
-    mensajes.classList.add('hidden')
+    mensajes.classList.add('hidden');
     let validacionSB = [];
     for(let i = 0; i < 5; i++){
         validacionSB.push(event.target.elements[i].value);
@@ -62,14 +75,14 @@ function submitForm(event){
     nuevoItem = null;
 }
 function addElementToList(data){
-    $cardTampalte.querySelector('.template-nombre').textContent = data.nombre;
-    $cardTampalte.querySelector('.template-telefono').textContent = data.telefono;
-    $cardTampalte.querySelector('.template-correo').textContent = data.correo;
-    $cardTampalte.querySelector('.template-fecha').textContent = data.fecha;
-    $cardTampalte.querySelector('.template-hora').textContent = data.hora;
-    $cardTampalte.querySelector('.template-nota').textContent = data.nota;
-    let $clonTemplate = document.importNode($cardTampalte, true);
-    listaCitas.appendChild($clonTemplate);
+    cardTampalte.querySelector('.template-nombre').textContent = data.nombre;
+    cardTampalte.querySelector('.template-telefono').textContent = data.telefono;
+    cardTampalte.querySelector('.template-correo').textContent = data.correo;
+    cardTampalte.querySelector('.template-fecha').textContent = data.fecha;
+    cardTampalte.querySelector('.template-hora').textContent = data.hora;
+    cardTampalte.querySelector('.template-nota').textContent = data.nota;
+    let clonTemplate = document.importNode(cardTampalte, true);
+    listaCitas.appendChild(clonTemplate);
     $clonTemplate = null;
 }
 

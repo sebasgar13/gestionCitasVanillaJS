@@ -57,30 +57,30 @@
             <article class="w-full md:w-1/2 lg:w-2/3 mb-10">
                 <h3 class="mb-5 w-full text-center text-2xl text-gray-700 uppercase font-bold">Lista </h3>
                 <div id="listaPacientes" class="flex justify-center flex-wrap flex-col-reverse px-5">
-                    <template id="template-card">
-                        <div class="card-container">
-                            <div class="">
-                                <p class="card-nombre">Nombre: <span class="card-nombre-span template-nombre"></span></p>
-                                <div class="grid grid-cols-1 md:grid-cols-2 my-2">
-                                    <p class="card-nombre">Teléfono: <span class="card-nombre-span template-telefono"></span></p>
-                                    <p class="card-nombre">Correo: <span class="card-nombre-span template-correo"></span></p>
-                                </div>
-                                <div class="grid grid-cols-1 md:grid-cols-2 my-2">
-                                    <p class="card-nombre">Fecha: <span class="card-nombre-span template-fecha">24/12/21</span></p>
-                                    <p class="card-nombre">Hora: <span class="card-nombre-span template-hora">16:00</span></p>
-                                </div>
-                                <p class="card-nombre">Nota: <span class="card-nombre-span template-nota">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, repellat ducimus magni quod asperiores, soluta voluptas ab quidem aperiam veritatis doloremque. Molestias perspiciatis quia libero ea rem modi numquam voluptatibus!</span></p>
-                            </div>
-                            <div onclick="removeNodo(event)" class="flex flex-row-reverse">
-                                <!-- <div class="bg-green-100 w-12 h-12 flex justify-center items-center mx-5"><img class="w-3/4" src="./static/iconos/checkmark-circle-outline.svg" alt="icono de completado"></div> -->
-                                <div class="bg-red-100 w-12 h-12 flex justify-center items-center"><img class="w-3/4" src="./static/iconos/trash-outline.svg" alt="icono de borrar"></div>
-                            </div>
-                        </div>
-                    </template>
                 </div>
             </article>
         </div>
     </section>
+    <template id="template-card">
+        <div class="card-container">
+            <div class="">
+                <p class="card-nombre">Nombre: <span class="card-nombre-span template-nombre"></span></p>
+                <div class="grid grid-cols-1 md:grid-cols-2 my-2">
+                    <p class="card-nombre">Teléfono: <span class="card-nombre-span template-telefono"></span></p>
+                    <p class="card-nombre">Correo: <span class="card-nombre-span template-correo"></span></p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 my-2">
+                    <p class="card-nombre">Fecha: <span class="card-nombre-span template-fecha">24/12/21</span></p>
+                    <p class="card-nombre">Hora: <span class="card-nombre-span template-hora">16:00</span></p>
+                </div>
+                <p class="card-nombre">Nota: <span class="card-nombre-span template-nota">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, repellat ducimus magni quod asperiores, soluta voluptas ab quidem aperiam veritatis doloremque. Molestias perspiciatis quia libero ea rem modi numquam voluptatibus!</span></p>
+            </div>
+            <div onclick="removeNodo(event)" class="flex flex-row-reverse">
+                <!-- <div class="bg-green-100 w-12 h-12 flex justify-center items-center mx-5"><img class="w-3/4" src="./static/iconos/checkmark-circle-outline.svg" alt="icono de completado"></div> -->
+                <div class="bg-red-100 w-12 h-12 flex justify-center items-center"><img class="w-3/4" src="./static/iconos/trash-outline.svg" alt="icono de borrar"></div>
+            </div>
+        </div>
+    </template>
     <script src="./static/js/appCitas.js"></script>
 </body>
 </html>
